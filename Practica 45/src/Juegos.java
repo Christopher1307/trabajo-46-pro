@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 
@@ -41,7 +39,7 @@ public class Juegos {
             Scanner scanner = new Scanner(new File(rutaVideojuego));
             StringBuilder datoVideojuego = new StringBuilder();
             while (scanner.hasNextLine()) {
-                String linea = new scanner.nextLine();
+                String linea =  scanner.nextLine();
                 if (!linea.contains(juegoBorrados)) {
                     datoVideojuego.append(linea).append("\n");
                 }
@@ -52,4 +50,22 @@ public class Juegos {
         }
 
     }
+    public static void mostrarLista ( String rutaVideojuego){
+        try {
+            FileReader fileReader = new  FileReader(rutaVideojuego);
+            BufferedReader BufferedReader = new BufferedReader(fileReader);
+
+            String linea;
+            System.out.println("lista de juegos disponibles");
+            while ((linea = BufferedReader.readLine()) != null) {
+                System.out.println(linea);
+            }
+            fileReader.close();
+            BufferedReader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -20,7 +20,8 @@ public class Main {
             System.out.println("4) Buscar un videjuego");
             System.out.println("5) insertar un nuevo videjuego");
             System.out.println("6) eliminar videojuego");
-            System.out.println("7) Salir del menú :(");
+            System.out.println("7)Mostrar juegos disponibles");
+            System.out.println("8) Salir del menú :(");
 
             System.out.println("\nElige la opcion que necesites");
             opcion = scanner.nextLine();
@@ -59,6 +60,9 @@ public class Main {
                     Juegos.borrarVideojuegos(rutaVideojuego , juegoBorrados);
                     break;
                 case "7":
+                    Juegos.mostrarLista(rutaVideojuego);
+                    break;
+                case "8":
                     System.out.println("gracias por usar el menu :)");
                     break;
                 default:
