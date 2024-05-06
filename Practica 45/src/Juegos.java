@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 
 public class Juegos {
-    public static void busquedaVideojuego(String rutaVideojuego , String juegoBuscado ) {
+    public static void busquedaVideojuego(String rutaVideojuego , String juegoBuscado) {
         try {
             Scanner scanner = new Scanner(new File(rutaVideojuego));
             while (scanner.hasNextLine()) {
                 String Linea = scanner.nextLine();
-                if (Linea.contains(rutaVideojuego)) {
+                if (Linea.contains(juegoBuscado)) {
                     System.out.println("juego encontrado" + Linea);
                     scanner.close();
                     return;

@@ -7,24 +7,32 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        String  rutaUsuario = "E:/Programacion ciclo superior/carpeta codigos python/usuarios.txt";
-        String  rutaVideojuego = "E:/Programacion ciclo superior/carpeta codigos java/videojuego.txt";
+        String rutaUsuario = ":\\Users\\Usuario\\trabajo-46-pro\\Practica 45\\src\\juegos.txt";
+        // ruta de clase   String  rutaUsuario = "E:/Programacion ciclo superior/carpeta codigos python/usuarios.txt";
+        String rutaVideojuego = "C:\\Users\\Usuario\\trabajo-46-pro\\Practica 45\\src\\juegos.txt";
+       // ruta de clase String  rutaVideojuego = "E:/Programacion ciclo superior/carpeta codigos java/videojuego.txt";
+        String rutaCompras = "C:\\Users\\Usuario\\trabajo-46-pro\\Practica 45\\src\\compras.txt";
+        // ruta clase  String rutaCompras = "";
         String  opcion = "";
 
-        while (!opcion.equals("8")) {
-            System.out.println("\n////////Venta de Juegos Online/////////\n");
-            System.out.println("Elige la opción que desees dependiendo de tu necesidad:");
-            System.out.println("1) Buscar un usuario (ingresa el dni)");
-            System.out.println("2) Agregar un nuevo usuario a la lista");
-            System.out.println("3) Eliminar un usuario de la lista");
-            System.out.println("4) Buscar un videjuego");
-            System.out.println("5) insertar un nuevo videjuego");
-            System.out.println("6) eliminar videojuego");
-            System.out.println("7)Mostrar juegos disponibles");
-            System.out.println("8) Salir del menú :(");
+        while (!opcion.equals("10")) {
+            System.out.println("\n//////// Venta de Juegos Online ////////\n");
+            System.out.println("Elige la opción que desees:");
+            System.out.println("1) Buscar un usuario (ingresa el DNI)");
+            System.out.println("2) Agregar un nuevo usuario");
+            System.out.println("3) Eliminar un usuario");
+            System.out.println("4) Buscar un juego (ingresa el número serial)");
+            System.out.println("5) Agregar un nuevo juego");
+            System.out.println("6) Eliminar un juego");
+            System.out.println("7) Mostrar carrito de compras");
+            System.out.println("8) Realizar compra");
+            System.out.println("9) Mostrar lista de juegos disponibles");
+            System.out.println("10) Mostrar las compras realizadasd" );
+            System.out.println("11) Salir");
 
-            System.out.println("\nElige la opcion que necesites");
+            System.out.println("\nElige la opción que necesites:");
             opcion = scanner.nextLine();
+
 
             switch (opcion) {
                 case "1":
@@ -47,7 +55,7 @@ public class Main {
                 case "4":
                     System.out.println("ingrese aqui el videojuego que quiere buscar:");
                     String juegoBuscado  = scanner.nextLine();
-                    Juegos.busquedaVideojuego(rutaVideojuego ,juegoBuscado);
+                    Juegos.busquedaVideojuego(rutaVideojuego , juegoBuscado);
                     break;
                 case "5":
                     System.out.println("ingrese el nuevo Videojuego que quieres agregar:");
@@ -63,10 +71,24 @@ public class Main {
                     Juegos.mostrarLista(rutaVideojuego);
                     break;
                 case "8":
-                    System.out.println("gracias por usar el menu :)");
+                    System.out.println("Ingrese el DNI del usuario:");
+                    String dniUsuario = scanner.nextLine();
+                    System.out.println("Ingrese el serial del juego:");
+                    String serialJuego = scanner.nextLine();
+                    Compras.registrarCompra(rutaCompras, dniUsuario, serialJuego);
+                    break;
+
+                case "9":
+                    Juegos.mostrarLista(rutaVideojuego);
+                    break;
+                case "10":
+                    Compras.mostrarCompras(rutaCompras);
+                    break;
+                case "11":
+                    System.out.println("¡Gracias por usar el menú!");
                     break;
                 default:
-                    System.out.println("opcion incorrecta, por favor elige otra");
+                    System.out.println("Opción incorrecta, por favor elige otra.");
                     break;
             }
         }
